@@ -20,16 +20,17 @@ class VideoCard extends StatelessWidget {
         );
       },
       child: SizedBox(
-        width: MediaQuery.of(context).size.width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image(
-              image: NetworkImage(video.thumb),
+            SizedBox(
               width: MediaQuery.of(context).size.width * 0.4,
-              fit: BoxFit.cover,
-              height: 80,
+              child: Image(
+                image: NetworkImage(video.thumb),
+                fit: BoxFit.cover,
+                height: 80,
+              ),
             ),
             Container(
               width: MediaQuery.of(context).size.width * 0.5,
@@ -46,7 +47,6 @@ class VideoCard extends StatelessWidget {
                         ? '${video.description.substring(0, 100)}...'
                         : video.description,
                     overflow: TextOverflow.clip,
-                    // softWrap: true,
                   ),
                 ],
               ),
